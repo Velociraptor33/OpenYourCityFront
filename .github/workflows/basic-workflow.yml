@@ -7,6 +7,6 @@ jobs:
       - name: Check out branch
         uses: actions/checkout@v2
       - name: Install dependencies
-        uses: npm ci
+        run: npm ci
       - name: Lint
-        uses: npm run lint
+        run: npm run lint
