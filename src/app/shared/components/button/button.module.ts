@@ -6,11 +6,6 @@ import { ButtonComponent } from './button.component';
   declarations: [
     ButtonComponent
   ],
-  imports: [],
-  providers: [],
-  bootstrap: [
-    ButtonComponent
-  ],
   exports: [
     ButtonComponent
   ]
