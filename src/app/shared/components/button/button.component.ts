@@ -8,7 +8,8 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 })
 
 export class ButtonComponent implements OnInit {
-  @Input() type!: string;
+  @Input() severity: 'primary' | 'secondary' = 'primary';
+
   constructor() { }
 
   ngOnInit(): void {
