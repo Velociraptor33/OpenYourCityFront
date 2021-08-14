@@ -32,10 +32,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/style",
-              "src/style/variables",
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles",
+                "src/styles/variables",
+                "src/styles/mixins"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
