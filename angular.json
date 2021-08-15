@@ -38,7 +38,8 @@
               "includePaths": [
                 "src/styles",
                 "src/styles/variables",
-                "src/styles/mixins"
+                "src/styles/mixins",
+                "src/styles/resources"
               ]
             },
             "scripts": []
