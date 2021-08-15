@@ -1,5 +1,5 @@
- @import "../../../../styles/variables/variables";
- @import "../../../../styles/mixins/mixins";
+ @import "variables";
+ @import "mixins";
 
  .button {
    @include font-roboto();
