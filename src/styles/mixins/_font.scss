@@ -3,7 +3,6 @@
 @mixin font-roboto($size: 14px, $color: #FFFFFF, $weight: 500) {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
-  line-height: 16px;
   
   font-size: $size;
   font-weight: $weight;
