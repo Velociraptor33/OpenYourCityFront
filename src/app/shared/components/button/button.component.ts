@@ -6,7 +6,10 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class ButtonComponent implements OnInit {
+  @Input() severity: 'primary' | 'secondary' | 'warning' | 'danger' | 'success' = 'primary';
+  @Input() shape: 'contained' | 'outlined' = 'contained';
 
   constructor() { }
 

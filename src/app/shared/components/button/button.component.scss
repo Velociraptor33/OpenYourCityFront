@@ -1,0 +1,98 @@
+ @import "variables";
+ @import "mixins";
+
+ .button {
+   @include font-roboto();
+
+   text-align: center;
+   letter-spacing: 1.25px;
+   text-transform: uppercase;
+
+   min-width: 94px;
+   height: 36px;
+   border-radius: 4px;
+ }
+
+ .button-shape {
+
+   &--contained {
+     border: none;
+
+     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+
+     &:hover {
+       box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+     }
+
+     &.button--primary {
+       background-color: $color-primary-blue;
+       color: $color-primary-white;
+       transition: background 400ms;
+
+       &:hover {
+         background: #42A5F5;
+       }
+     }
+
+     &.button--secondary {
+       background-color: $color-secondary-white;
+       color: $color-secondary-blue;
+     }
+
+     &.button--danger {
+       background: $color-danger-white;
+       color: $color-danger-red;
+     }
+
+     &.button--warning {
+       background: $color-warning-white;
+       color: $color-warning-yellow;
+     }
+
+     &.button--success {
+       background: $color-success-white;
+       color: $color-success-green;
+     }
+   }
+
+   &--outlined {
+     border: 1px solid;
+     background: #FFFFFF;
+
+     &.button--primary {
+       border-color: $color-primary-blue;
+       color: $color-primary-blue;
+
+       &:hover {
+         background: $color-primary-white-outlined;
+       }
+     }
+
+     &.button--danger {
+       border-color: $color-danger-red-outlined;
+       color: $color-danger-red-outlined;
+
+       &:hover {
+         background: $color-danger-white-outlined;
+       }
+     }
+
+     &.button--warning {
+       border-color: $color-warning-yellow;
+       color: $color-warning-yellow;
+
+       &:hover {
+         background: $color-warning-white-outlined;
+       }
+     }
+
+     &.button--success {
+       border-color: $color-success-green;
+       color: $color-success-green;
+
+       &:hover {
+         background: $color-success-white-outlined;
+       }
+     }
+   }
+ }
