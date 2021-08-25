@@ -1,16 +1,50 @@
 @import "fonts";
 
 .ripple {
-  position: absolute; /* The absolute position we mentioned earlier */
+  z-index: 2;
+  box-sizing: content-box;
+  position: absolute;
+  /* The absolute position we mentioned earlier */
   border-radius: 50%;
   transform: scale(0);
-  animation: ripple 2000ms linear;
+  animation: ripple 400ms linear;
   background-color: rgba(36, 34, 34, 0.7);
+
+  animation-fill-mode: backwards;
+  opacity: 0;
+  transition: opacity 0.6s;
 }
 
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
+.button:active:hover {
+  
+    .ripple:last-of-type {
+      animation-fill-mode: forwards;
+      opacity: 1;
+      transition: opacity 2s;
+  
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+        }
+      }
+    }
+  
+  // &:last-child {
+  // opacity: 1;
+  
+
+  // }
+  // .ripple {
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: rgba(36, 34, 34, 0.7);
+  // }
+
 }
+
+// @keyframes ripple {
+//   to {
+//     transform: scale(4);
+//     opacity: 1;
+//   }
+// }

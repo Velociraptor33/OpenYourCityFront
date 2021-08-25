@@ -15,15 +15,11 @@ export class RippleDirective {
   @HostListener('mousedown', ['$event']) onClickRipple(event: MouseEvent): void {
     const circle = document.createElement('span');
     const diameter = Math.max(this.element.clientWidth, this.element.clientHeight);
-    const radius = diameter / 2;
-    console.log('clientY', event.clientY);
-    console.log('clientX', event.clientX);
+    const radius = diameter / 2 ;
 
     circle.style.width = circle.style.height = `${diameter}px`;
     circle.style.left = `${event.clientX - this.element.offsetLeft - radius}px`;
     circle.style.top = `${event.clientY - this.element.offsetTop - radius}px`;
-    console.log(circle.style.top);
-    console.log(circle.style.left);
     circle.className = 'ripple';
 
     this.element.appendChild(circle);
