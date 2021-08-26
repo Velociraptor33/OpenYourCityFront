@@ -101,3 +101,28 @@
      }
    }
  }
+
+ .button-disabled {
+   box-shadow: none;
+
+   &:hover {
+     box-shadow: none;
+   }
+
+   &.button--primary,
+   &.button--primary:hover {
+     background-color: $color-primary-gray-disabled;
+     color: $color-primary-white-disabled;
+
+     &.button-shape--outlined {
+       background-color: #FFFFFF;
+       border-color: $color-primary-gray-disabled-outlined;
+       color: $color-primary-gray-disabled-outlined;
+     }
+   }
+
+   &.button--secondary {
+     background-color: $color-secondary-white-disabled;
+     color: $color-secondary-gray-disabled;
+   }
+ }

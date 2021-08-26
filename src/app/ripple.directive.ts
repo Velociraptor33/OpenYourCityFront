@@ -13,6 +13,9 @@ export class RippleDirective {
   }
 
   @HostListener('mousedown', ['$event']) onClickRipple(event: MouseEvent): void {
+    if (this.element.classList.contains('button-disabled')) {
+      return;
+    }
     const circle = document.createElement('span');
     const diameter = Math.max(this.element.clientWidth, this.element.clientHeight);
     const radius = diameter / 2 ;
