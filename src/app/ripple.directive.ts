@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
 
 export class RippleDirective {
 
-  // @Input() rippleColor: string = 'rgba(36, 34, 34, 0.7)';
+  @Input() rippleColor!: string;
   @Input() rippleDisabled: boolean = false;
   element: HTMLElement;
 
@@ -27,6 +27,8 @@ export class RippleDirective {
 
     this.renderer.setStyle(circle, 'left', `${event.clientX - this.element.offsetLeft - radius}px`);
     this.renderer.setStyle(circle, 'top', `${event.clientY - this.element.offsetTop - radius}px`);
+
+    this.renderer.setStyle(circle, 'background', this.rippleColor);
 
     this.renderer.addClass(circle, 'ripple');
 
