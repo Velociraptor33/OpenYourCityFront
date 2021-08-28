@@ -39,7 +39,8 @@
                 "src/styles",
                 "src/styles/variables",
                 "src/styles/mixins",
-                "src/styles/resources"
+                "src/styles/resources",
+                "src/styles/elements"
               ]
             },
             "scripts": []
