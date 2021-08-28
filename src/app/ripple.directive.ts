@@ -3,13 +3,14 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
 @Directive({
   selector: '[oycRipple]'
 })
+
 export class RippleDirective {
 
   // @Input() rippleColor: string = 'rgba(36, 34, 34, 0.7)';
   @Input() rippleDisabled: boolean = false;
   element: HTMLElement;
 
-  constructor(private el: ElementRef, renderer: Renderer2) {
+  constructor(private el: ElementRef, private renderer: Renderer2) {
     this.element = el.nativeElement;
   }
 
@@ -17,15 +18,18 @@ export class RippleDirective {
     if (this.rippleDisabled) {
       return;
     }
-    const circle = document.createElement('span');
+    const circle = this.renderer.createElement('span');
     const diameter = Math.max(this.element.clientWidth, this.element.clientHeight);
     const radius = diameter / 2;
 
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${event.clientX - this.element.offsetLeft - radius}px`;
-    circle.style.top = `${event.clientY - this.element.offsetTop - radius}px`;
-    circle.className = 'ripple';
+    this.renderer.setStyle(circle, 'width', `${diameter}px`);
+    this.renderer.setStyle(circle, 'height', `${diameter}px`);
 
-    this.element.appendChild(circle);
+    this.renderer.setStyle(circle, 'left', `${event.clientX - this.element.offsetLeft - radius}px`);
+    this.renderer.setStyle(circle, 'top', `${event.clientY - this.element.offsetTop - radius}px`);
+
+    this.renderer.addClass(circle, 'ripple');
+
+    this.renderer.appendChild(this.element, circle);
   }
 }
