@@ -1,3 +1,7 @@
-<button class="button button--{{severity}} button-shape--{{shape}}" [class.button-disabled]="disabled" oycRipple>
+<button 
+  class="button button--{{severity}} button-shape--{{shape}}" 
+  [class.button--disabled]="disabled"
+  [rippleDisabled]="disabled" 
+  oycRipple>
   BUTTON
 </button>

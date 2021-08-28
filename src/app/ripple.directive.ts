@@ -1,24 +1,25 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[oycRipple]'
 })
 export class RippleDirective {
 
-  @Input() color: 'red' | '' = ''; // '' = 'red';
-  element: any;
-  constructor(el: ElementRef) {
+  // @Input() rippleColor: string = 'rgba(36, 34, 34, 0.7)';
+  @Input() rippleDisabled: boolean = false;
+  element: HTMLElement;
+
+  constructor(private el: ElementRef, renderer: Renderer2) {
     this.element = el.nativeElement;
-    // this.element.classList.add('ripple');
   }
 
   @HostListener('mousedown', ['$event']) onClickRipple(event: MouseEvent): void {
-    if (this.element.classList.contains('button-disabled')) {
+    if (this.rippleDisabled) {
       return;
     }
     const circle = document.createElement('span');
     const diameter = Math.max(this.element.clientWidth, this.element.clientHeight);
-    const radius = diameter / 2 ;
+    const radius = diameter / 2;
 
     circle.style.width = circle.style.height = `${diameter}px`;
     circle.style.left = `${event.clientX - this.element.offsetLeft - radius}px`;
