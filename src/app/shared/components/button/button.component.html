@@ -2,8 +2,11 @@
   class="button button--{{severity}} button-shape--{{shape}}" 
   [class.button--disabled]="disabled"
   [rippleDisabled]="disabled" 
+  
   [rippleColor]="rippleColor"
   (click)="clickEvent($event)"
-  oycRipple>
+  oycRipple
+  disabled="{{disabled ? 'true': null}}"
+  tabindex="{{disabled ? '-1': null}}">
   BUTTON
 </button>
