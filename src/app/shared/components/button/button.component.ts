@@ -17,7 +17,7 @@ export class ButtonComponent {
 
   constructor() { }
 
-  clickEvent(event: MouseEvent): void {
+  onButtonCLick(event: MouseEvent): void {
     this.clicked.emit(event);
   }
 }
