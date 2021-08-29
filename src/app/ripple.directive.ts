@@ -1,4 +1,6 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
+import { fromEvent, zip } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Directive({
   selector: '[oycRipple]'
@@ -10,11 +12,15 @@ export class RippleDirective {
   @Input() rippleDisabled: boolean = false;
   element: HTMLElement;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) {
     this.element = el.nativeElement;
   }
 
-  @HostListener('mousedown', ['$event']) onClickRipple(event: MouseEvent): void {
+  @HostListener('mousedown', ['$event'])
+  onClickRipple(event: MouseEvent): void {
     if (this.rippleDisabled) {
       return;
     }
@@ -33,5 +39,12 @@ export class RippleDirective {
     this.renderer.addClass(circle, 'ripple');
 
     this.renderer.appendChild(this.element, circle);
+
+    zip(
+      fromEvent(circle, 'animationend'),
+      fromEvent(this.element, 'mouseup')
+    ).pipe(
+      first()
+    ).subscribe(() => this.renderer.removeChild(this.element, circle));
   }
 }
