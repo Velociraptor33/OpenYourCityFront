@@ -10,7 +10,7 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from 
 export class ButtonComponent {
   @Input() severity: 'primary' | 'secondary' | 'warning' | 'danger' | 'success' = 'primary';
   @Input() shape: 'contained' | 'outlined' = 'contained';
-  @Input() disabled: true | false = false;
+  @Input() disabled: boolean = false;
   @Input() rippleColor: string = 'rgba(36, 34, 34, 0.7)';
 
   @Output() clicked: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
