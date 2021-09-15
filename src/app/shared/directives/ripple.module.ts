@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { RippleDirective } from '../../ripple.directive';
+import { RippleDirective } from './ripple.directive';
 
 @NgModule({
   declarations: [
