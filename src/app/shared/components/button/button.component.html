@@ -2,7 +2,7 @@
   class="button button--{{ severity }} button-shape--{{ shape }}"
   [class.button--disabled]="disabled"
   [rippleDisabled]="disabled"
-  [rippleColor]="severetyToRippleColor[shape][severity]"
+  [rippleColor]="severityToRippleColor[shape][severity]"
   (click)="onButtonCLick($event)"
   oycRipple
 >

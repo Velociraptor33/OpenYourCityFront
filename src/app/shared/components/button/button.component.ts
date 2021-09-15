@@ -24,19 +24,19 @@ export class ButtonComponent {
 
   @Output() clicked: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
-  severetyToRippleColor: { [index: string]: any } = {
-    'contained': {
-      'primary': '#FFFFFF52',
-      'secondary': '#FFFFFF8A',
-      'warning': '#FFFFFF8A',
-      'danger': '#FFFFFF8A',
-      'success': '#FFFFFF8A',
+  severityToRippleColor: { [index: string]: any } = {
+    contained: {
+      primary: '#FFFFFF52',
+      secondary: '#FFFFFF8A',
+      warning: '#FFFFFF8A',
+      danger: '#FFFFFF8A',
+      success: '#FFFFFF8A',
     },
-    'outlined': {
-      'primary': '#E3F2FD8A',
-      'warning': '#FFF5E58A',
-      'danger': '#FCE7E78A',
-      'success': '#ECF9F38A',
+    outlined: {
+      primary: '#E3F2FD8A',
+      warning: '#FFF5E58A',
+      danger: '#FCE7E78A',
+      success: '#ECF9F38A',
     },
   };
 
