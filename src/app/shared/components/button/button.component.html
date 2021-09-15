@@ -1,9 +1,10 @@
-<button 
-  class="button button--{{severity}} button-shape--{{shape}}" 
+<button
+  class="button button--{{ severity }} button-shape--{{ shape }}"
   [class.button--disabled]="disabled"
-  [rippleDisabled]="disabled" 
-  [rippleColor]="rippleColor"
+  [rippleDisabled]="disabled"
+  [rippleColor]="severetyToRippleColor[shape][severity]"
   (click)="onButtonCLick($event)"
-  oycRipple>
+  oycRipple
+>
   BUTTON
 </button>
