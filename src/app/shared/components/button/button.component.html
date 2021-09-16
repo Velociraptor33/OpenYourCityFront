@@ -1,12 +1,12 @@
 <button
   class="button button--{{ severity }} button-shape--{{ shape }}"
   [class.button--disabled]="disabled"
-  disabled="{{disabled ? 'true': null}}"
-  tabindex="{{disabled ? '-1': null}}"
+  disabled="{{ disabled ? 'true' : null }}"
+  tabindex="{{ disabled ? '-1' : null }}"
   [rippleDisabled]="disabled"
   [rippleColor]="severityToRippleColor[shape][severity]"
   (click)="onButtonCLick($event)"
   oycRipple
 >
-  BUTTON
+  <ng-content></ng-content>
 </button>
