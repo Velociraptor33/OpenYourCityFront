@@ -16,6 +16,8 @@
    overflow: hidden;
    margin: 0;
    padding: 0;
+
+   z-index: 2;
  }
 
  .button-shape {
@@ -125,4 +127,9 @@
      background-color: $color-secondary-white-disabled;
      color: $color-secondary-gray-disabled;
    }
+ }
+
+ .button--text {
+   position: relative;
+   z-index: 5;
  }

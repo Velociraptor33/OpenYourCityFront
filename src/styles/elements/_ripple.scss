@@ -1,8 +1,8 @@
 .ripple {
-  z-index: 2;
+  z-index: 1;
   box-sizing: content-box;
   position: absolute;
- 
+
   border-radius: 50%;
   transform: scale(0);
   animation: ripple 400ms linear;
@@ -13,12 +13,12 @@
 }
 
 .button:active:hover {
-  
+
     .ripple:last-of-type {
       animation-fill-mode: forwards;
       opacity: 1;
       transition: opacity 2s;
-  
+
       @keyframes ripple {
         to {
           transform: scale(4);
