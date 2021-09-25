@@ -1,0 +1,68 @@
+@import "variables";
+@import "mixins";
+
+.input {
+  width: max-content;
+
+  &__container {
+    width: fit-content;
+    border-radius: 4px;
+    border-width: 2px;
+    border-style: solid;
+
+    position: relative;
+
+    & input {
+      color: $color-text;
+    }
+
+    &_default {
+      border-color: $color-default;
+      & input {
+        color: $color-default-text;
+      }
+    }
+    &_focused {
+      border-color: $color-focused;
+    }
+    &_filled {
+      border-color: $color-filled;
+    }
+    &_error {
+      border-color: $color-error;
+    }
+  }
+  &__text {
+    @include font-roboto(16px, $color-default-text, 400);
+    letter-spacing: 0.15px;
+    line-height: 24px;
+    min-width: 240px;
+    min-height: 24px;
+    padding: 14px 10px 14px 14px;
+    margin: 0;
+  }
+  &__label {
+    position: absolute;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 15px;
+    top: -9px;
+    left: 10px;
+    padding: 0, 4px;
+    z-index: 5;
+    & span {
+      @include font-roboto(12px, $color-default-text, 400);
+      letter-spacing: 0.4px;
+      line-height: 15px;
+      width: 32px;
+      height: 15px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+input {
+  all: unset;
+}
