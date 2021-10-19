@@ -1,14 +1,13 @@
-import { query } from '@angular/animations';
 import {
   Component,
   ChangeDetectionStrategy,
   Renderer2,
   ElementRef,
   Input,
+  HostListener,
 } from '@angular/core';
 
-import { Observable, zip, fromEvent } from 'rxjs';
-// import { Zi }
+import { Observable, fromEvent, zip } from 'rxjs';
 @Component({
   selector: 'oyc-input',
   templateUrl: './input.component.html',
@@ -18,19 +17,20 @@ import { Observable, zip, fromEvent } from 'rxjs';
 export class InputComponent {
   @Input() state: 'default' | 'focused' | 'filled' | 'error' = 'default';
   @Input() label: string = 'Label';
-  element: HTMLElement;
+  @Input() assistiveText: string = 'Assistive text';
 
-  constructor(private el: ElementRef, private render: Renderer2) {
-    // this.render = Renderer2;
-    this.element = el.nativeElement;
-  }
+  constructor(private el: ElementRef, private render: Renderer2) {}
 
-  bas(): void {
-    const input = this.render.selectRootElement('input.input__text');
+  ch($event: FocusEvent): void {
+    const inputField = this.el.nativeElement.querySelector('.input__field');
+    const inputLabel = this.el.nativeElement.querySelector('.input__label');
 
-    fromEvent(input, 'focus').subscribe(() => {
-      this.render.removeClass(this.element, `input__container_${this.state}`);
-      this.render.addClass(this.element, 'input__container_focused');
-    });
+    const inputFieldValue = inputField.value;
+
+    if (inputFieldValue !== '') {
+      this.render.addClass(inputLabel, 'active-label');
+    } else {
+      this.render.removeClass(inputLabel, 'active-label');
+    }
   }
 }

@@ -1,68 +1,92 @@
 @import "variables";
 @import "mixins";
 
+input {
+  all: unset;
+}
+
 .input {
-  width: max-content;
-
   &__container {
-    width: fit-content;
-    border-radius: 4px;
-    border-width: 2px;
-    border-style: solid;
-
+    width: max-content;
     position: relative;
+    & .input__field {
+      min-height: 24px;
+      min-width: 240px;
 
-    & input {
-      color: $color-text;
-    }
+      outline: 1px solid $color-default;
+      outline-offset: -1px;
+      border-radius: 4px;
 
-    &_default {
-      border-color: $color-default;
-      & input {
+      padding: 16px 12px 16px 16px;
+
+      @include font-roboto(16px, $color-text, 400);
+      line-height: 24px;
+      letter-spacing: 0.15px;
+
+      &:placeholder-shown {
         color: $color-default-text;
       }
-    }
-    &_focused {
-      border-color: $color-focused;
-    }
-    &_filled {
-      border-color: $color-filled;
-    }
-    &_error {
-      border-color: $color-error;
+
+      &:focus {
+        outline-width: 2px;
+        outline-color: $color-focused;
+        outline-offset: -2px;
+        color: $color-text;
+        &:placeholder-shown {
+          color: transparent;
+        }
+        & + .input__label {
+          display: flex;
+          & span {
+            color: $color-focused;
+          }
+        }
+      }
     }
   }
-  &__text {
-    @include font-roboto(16px, $color-default-text, 400);
-    letter-spacing: 0.15px;
-    line-height: 24px;
-    min-width: 240px;
-    min-height: 24px;
-    padding: 14px 10px 14px 14px;
-    margin: 0;
-  }
+
   &__label {
-    position: absolute;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
     width: 40px;
     height: 15px;
-    top: -9px;
-    left: 10px;
-    padding: 0, 4px;
-    z-index: 5;
+
+    display: none;
+    justify-content: center;
+    position: absolute;
+    top: -6px;
+    left: 12px;
+
+    background-color: #fff;
+  }
+  &__text {
+    @include font-roboto(12px, $color-filled-label, 400);
+    line-height: 15px;
+    letter-spacing: 0.4px;
+  }
+  &__assistive-text {
+    width: 236px;
+    height: 15px;
+    margin: 5px auto 0 auto;
+    vertical-align: middle;
+    display: none;
+
     & span {
-      @include font-roboto(12px, $color-default-text, 400);
-      letter-spacing: 0.4px;
-      line-height: 15px;
-      width: 32px;
-      height: 15px;
-      margin-left: auto;
-      margin-right: auto;
+      display: block;
+      width: auto;
+      height: auto;
+      color: $color-error;
+    }
+  }
+
+  & .error {
+    outline: 2px solid #c62828;
+    outline-offset: -2px;
+
+    & + .input__label + .input__assistive-text {
+      display: flex;
     }
   }
 }
-input {
-  all: unset;
+
+.active-label {
+  display: flex;
 }

@@ -1,13 +1,14 @@
-<div class="input">
-  <div class="input__container input__container_{{ state }}">
-    <div class="input__label">
-      <span>{{ label }}</span>
-    </div>
-    <input
-      type="text"
-      class="input__text"
-      placeholder="{{ label }}"
-      (click)="bas()"
-    />
+<div class="input input__container">
+  <input
+    type="text"
+    class="input__field"
+    placeholder="{{ label }}"
+    (focusout)="ch($event)"
+  />
+  <div class="input__label">
+    <span class="input__text">{{ label }}</span>
+  </div>
+  <div class="input__assistive-text">
+    <span class="input__text">Assistive text</span>
   </div>
 </div>
