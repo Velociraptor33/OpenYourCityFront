@@ -28,6 +28,7 @@ input {
       }
 
       &:focus {
+        transition: all 100ms;
         outline-width: 2px;
         outline-color: $color-focused;
         outline-offset: -2px;
