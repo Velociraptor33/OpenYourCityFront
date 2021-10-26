@@ -6,6 +6,14 @@ import {
   EventEmitter,
 } from '@angular/core';
 
+type ButtonSeverity = 'primary'
+| 'secondary'
+| 'warning'
+| 'danger'
+| 'success';
+
+type ButtonShape = 'contained' | 'outlined';
+
 @Component({
   selector: 'oyc-button',
   templateUrl: './button.component.html',
@@ -24,7 +32,7 @@ export class ButtonComponent {
 
   @Output() clicked: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
-  severityToRippleColor: { [index: string]: any } = {
+  severityToRippleColor: Record<ButtonShape, Record<ButtonSeverity, string>> = {
     contained: {
       primary: '#FFFFFF52',
       secondary: '#FFFFFF8A',
@@ -34,6 +42,7 @@ export class ButtonComponent {
     },
     outlined: {
       primary: '#E3F2FD8A',
+      secondary: '',
       warning: '#FFF5E58A',
       danger: '#FCE7E78A',
       success: '#ECF9F38A',
