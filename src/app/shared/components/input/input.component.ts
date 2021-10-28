@@ -28,9 +28,9 @@ export class InputComponent {
     const inputFieldValue = inputField.value;
 
     if (inputFieldValue !== '') {
-      this.render.addClass(inputLabel, 'active-label');
+      this.render.addClass(inputLabel, 'input__label_active');
     } else {
-      this.render.removeClass(inputLabel, 'active-label');
+      this.render.removeClass(inputLabel, 'input__label_active');
     }
   }
 }
