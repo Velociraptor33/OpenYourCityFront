@@ -57,6 +57,9 @@ input {
     left: 12px;
 
     background-color: #fff;
+    &_active {
+      display: flex;
+  }
   }
   &__text {
     @include font-roboto(12px, $color-filled-label, 400);
@@ -86,8 +89,4 @@ input {
       display: flex;
     }
   }
-}
-
-.active-label {
-  display: flex;
 }
