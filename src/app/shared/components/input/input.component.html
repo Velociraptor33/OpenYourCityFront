@@ -4,6 +4,8 @@
     class="input__field"
     placeholder="{{ label }}"
     (focusout)="ch($event)"
+    [disabled]="disabled"
+    [class.input__field_disabled]="disabled"
   />
   <div class="input__label">
     <span class="input__text">{{ label }}</span>

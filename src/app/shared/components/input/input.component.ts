@@ -18,6 +18,7 @@ export class InputComponent {
   @Input() state: 'default' | 'focused' | 'filled' | 'error' = 'default';
   @Input() label: string = 'Label';
   @Input() assistiveText: string = 'Assistive text';
+  @Input() disabled: boolean = false;
 
   constructor(private el: ElementRef, private render: Renderer2) {}
 

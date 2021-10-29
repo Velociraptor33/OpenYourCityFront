@@ -48,19 +48,29 @@ $color-secondary-white-disabled: #d7d5d5;
 $color-secondary-gray-disabled: #9e9e9e;
 
 // Input
-$color-text: #000000de;
+// $color-text: #000000de;
 
-// default
-$color-default: #9e9e9e;
-$color-default-text: #9e9e9e;
+// // default
+// $color-default: #9e9e9e;
+// $color-default-text: #9e9e9e;
 
-// focused
-$color-focused: #2196f3;
+// // focused
+// $color-focused: #2196f3;
 
 
-// filled
-$color-filled: #9e9e9e;
-$color-filled-label: #0000008A;
+// // filled
+// $color-filled: #9e9e9e;
+// $color-filled-label: #0000008A;
 
-// error
-$color-error: #c62828;
+// // error
+// $color-error: #c62828;
+
+$color-input-disabled: #E5E5E5;
+$color-input-text-disabled: #D7D5D5;
+
+
+$color-input-gray: #9e9e9e;
+$color-input-text: #000000DE;
+$color-input-label-text: #0000008A;
+$color-input-blue: #2196f3;
+$color-input-red: #c62828;
