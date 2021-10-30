@@ -11,6 +11,13 @@
    min-width: 94px;
    height: 36px;
    border-radius: 4px;
+
+   position: relative;
+   overflow: hidden;
+   margin: 0;
+   padding: 0;
+
+   z-index: 2;
  }
 
  .button-shape {
@@ -95,4 +102,34 @@
        }
      }
    }
+ }
+
+ .button--disabled {
+   box-shadow: none;
+
+   &:hover {
+     box-shadow: none;
+   }
+
+   &.button--primary,
+   &.button--primary:hover {
+     background-color: $color-primary-gray-disabled;
+     color: $color-primary-white-disabled;
+
+     &.button-shape--outlined {
+       background-color: #FFFFFF;
+       border-color: $color-primary-gray-disabled-outlined;
+       color: $color-primary-gray-disabled-outlined;
+     }
+   }
+
+   &.button--secondary {
+     background-color: $color-secondary-white-disabled;
+     color: $color-secondary-gray-disabled;
+   }
+ }
+
+ .button--text {
+   position: relative;
+   z-index: 5;
  }

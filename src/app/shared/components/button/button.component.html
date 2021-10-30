@@ -1,3 +1,13 @@
-<button class="button button--{{severity}} button-shape--{{shape}}">
-  BUTTON
+<button
+  class="button button--{{ severity }} button-shape--{{ shape }}"
+  [class.button--disabled]="disabled"
+  [disabled]="disabled"
+  [rippleDisabled]="disabled"
+  [rippleColor]="severityToRippleColor[shape][severity]"
+  (click)="onButtonCLick($event)"
+  oycRipple
+>
+  <span class="button--text">
+    <ng-content></ng-content>
+  </span>
 </button>

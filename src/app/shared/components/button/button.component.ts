@@ -1,19 +1,52 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
+
+type ButtonSeverity = 'primary'
+| 'secondary'
+| 'warning'
+| 'danger'
+| 'success';
+
+type ButtonShape = 'contained' | 'outlined';
 
 @Component({
   selector: 'oyc-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
+export class ButtonComponent {
+  @Input() severity: ButtonSeverity = 'primary';
+  @Input() shape: ButtonShape = 'contained';
+  @Input() disabled: boolean = false;
 
-export class ButtonComponent implements OnInit {
-  @Input() severity: 'primary' | 'secondary' | 'warning' | 'danger' | 'success' = 'primary';
-  @Input() shape: 'contained' | 'outlined' = 'contained';
+  @Output() clicked: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
-  constructor() { }
+  severityToRippleColor: Record<ButtonShape, Record<ButtonSeverity, string>> = {
+    contained: {
+      primary: '#FFFFFF52',
+      secondary: '#FFFFFF8A',
+      warning: '#FFFFFF8A',
+      danger: '#FFFFFF8A',
+      success: '#FFFFFF8A',
+    },
+    outlined: {
+      primary: '#E3F2FD8A',
+      secondary: '',
+      warning: '#FFF5E58A',
+      danger: '#FCE7E78A',
+      success: '#ECF9F38A',
+    },
+  };
 
-  ngOnInit(): void {
+  constructor() {}
+
+  onButtonCLick(event: MouseEvent): void {
+    this.clicked.emit(event);
   }
-
 }
