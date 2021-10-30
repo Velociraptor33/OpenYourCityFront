@@ -21,13 +21,8 @@ type ButtonShape = 'contained' | 'outlined';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input() severity:
-    | 'primary'
-    | 'secondary'
-    | 'warning'
-    | 'danger'
-    | 'success' = 'primary';
-  @Input() shape: 'contained' | 'outlined' = 'contained';
+  @Input() severity: ButtonSeverity = 'primary';
+  @Input() shape: ButtonShape = 'contained';
   @Input() disabled: boolean = false;
 
   @Output() clicked: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
