@@ -4,7 +4,7 @@
     [(ngModel)]="value"
     [class.input__field--filled]="value"
     [class.input__field--error]="error"
-    type="text"
+    type="{{inputTypes}}"
     class="input__field"
     placeholder="{{ label }}"
     [disabled]="disabled"
