@@ -1,8 +1,4 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'oyc-input',
@@ -12,6 +8,15 @@ import {
 })
 export class InputComponent {
   @Input() state: 'default' | 'focused' | 'filled' | 'error' = 'default';
+  @Input() inputTypes:
+    | 'email'
+    | 'hidden'
+    | 'number'
+    | 'password'
+    | 'search'
+    | 'tel'
+    | 'text'
+    | 'url' = 'text';
   @Input() label: string = 'First Name';
   @Input() assistiveText: string = 'Assistive text';
   @Input() disabled: boolean = false;
@@ -19,5 +24,4 @@ export class InputComponent {
   @Input() error: boolean = false;
 
   constructor() {}
-
 }
