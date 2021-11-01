@@ -1,0 +1,117 @@
+@import "variables";
+@import "mixins";
+
+input {
+  all: unset;
+}
+
+.input {
+  padding: 0;
+  margin: 6px 0 0 0;
+  position: relative;
+  width: max-content;
+  height: 6 + 56 + 5 + 15px;
+
+  & .input__field {
+    min-height: 24px;
+    min-width: 240px;
+
+    outline: 1px solid $color-input-gray;
+    outline-offset: -1px;
+    border-radius: 4px;
+
+    padding: 16px 12px 16px 16px;
+
+    @include font-roboto(16px, $color-input-text, 400);
+    line-height: 24px;
+    letter-spacing: 0.15px;
+
+    &::placeholder {
+      color: $color-input-gray;
+    }
+
+    &:focus {
+      outline: solid 2px $color-input-blue;
+      outline-offset: -2px;
+      color: $color-input-text;
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      & + .input__label {
+        display: block;
+        color: $color-input-blue;
+      }
+
+      & ~ .input__assistive-text {
+        display: none;
+        // color: $color-input-blue;
+      }
+    }
+
+    &--disabled {
+      &::placeholder {
+        color: $color-input-text-disabled;
+      }
+      color: $color-input-text-disabled;
+      outline-color: $color-input-disabled;
+
+      & + .input__label {
+        color: $color-input-gray;
+      }
+    }
+
+    &--filled + .input__label {
+      display: block;
+    }
+  }
+
+  &__label {
+    max-width: 256-12-12px;
+    height: 15px;
+    padding: 0 4px;
+    background-color: #fff;
+
+    position: absolute;
+    top: -6px;
+    left: 12px;
+
+    display: none;
+  }
+
+  &__text {
+    @include font-roboto(12px, $color-input-label-text, 400);
+    line-height: 15px;
+    letter-spacing: 0.4px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__assistive-text {
+    width: 236px;
+    height: 15px;
+    margin: 5px auto 0 auto;
+    color: $color-input-red;
+
+    vertical-align: middle;
+    display: none;
+  }
+
+  & .input__field--error {
+    outline: 2px solid $color-input-red;
+    outline-offset: -2px;
+
+    & ~ .input__text {
+      color: $color-input-red;
+      display: block;
+    }
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}

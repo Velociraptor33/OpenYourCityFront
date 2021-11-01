@@ -1,0 +1,19 @@
+<div class="input">
+  <input
+    id="input"
+    [(ngModel)]="value"
+    [class.input__field--filled]="value"
+    [class.input__field--error]="error"
+    type="text"
+    class="input__field"
+    placeholder="{{ label }}"
+    [disabled]="disabled"
+    [class.input__field--disabled]="disabled"
+  />
+  <label for="input" class="input__label input__text">
+    {{ label }}
+  </label>
+  <label for="input" class="input__assistive-text input__text">
+    {{ assistiveText }}
+  </label>
+</div>
