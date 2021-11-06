@@ -9,3 +9,7 @@
 html {
   @include font-roboto(16px);
 }
+
+body {
+  min-height: 100vh;
+}
