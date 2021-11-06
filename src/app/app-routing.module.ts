@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren:  () => import('./landing/landing.module').then(m => m.LandingModule),
+  },
+  {
+    path: 'ui-kit',
+    loadChildren:  () => import('./ui-kit-preview/ui-kit-preview.module').then(m => m.UiKitPreviewModule),
   }
 ];
 
