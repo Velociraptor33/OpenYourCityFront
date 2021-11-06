@@ -1,0 +1,55 @@
+h1 {
+  &.oyc-h-1 {
+    font-size: 40px;
+
+    &--lg {
+      font-size: 48px;
+    }
+
+    &--sm {
+      font-size: 32px;
+    }
+  }
+}
+
+h2 {
+  &.oyc-h-2 {
+    font-size: 32px;
+
+    &--lg {
+      font-size: 36px;
+    }
+
+    &--sm {
+      font-size: 28px;
+    }
+  }
+}
+
+h3 {
+  &.oyc-h-3 {
+    font-size: 28px;
+
+    &--lg {
+      font-size: 32px;
+    }
+
+    &--sm {
+      font-size: 24px;
+    }
+  }
+}
+
+h4 {
+  &.oyc-h-4 {
+    font-size: 24px;
+
+    &--lg {
+      font-size: 28px;
+    }
+
+    &--sm {
+      font-size: 20px;
+    }
+  }
+}
