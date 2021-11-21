@@ -1,0 +1,146 @@
+@import "variables";
+@import "mixins";
+
+input {
+  all: unset;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: max-content;
+  width: 268px;
+  margin-top: 4px;
+
+  .input__field {
+    position: relative;
+    height: auto;
+    width: 100%;
+
+    margin: 16px 12px 16px 16px;
+
+    @include font-roboto(16px, $color-input-gray, 400);
+    line-height: 24px;
+    letter-spacing: 0.15px;
+
+    &::placeholder {
+      color: $color-input-gray;
+    }
+
+    &:focus {
+      color: $color-input-text;
+
+      & ~ .input__border {
+        outline: solid 2px $color-input-blue;
+        outline-offset: -2px;
+      }
+
+      & ~ .input__label {
+        display: block;
+        color: $color-input-blue;
+      }
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      & ~ .input__assistive-text {
+        display: none;
+      }
+    }
+
+    &--filled {
+      color: $color-input-text;
+
+      & ~ .input__label {
+        display: block;
+        color: $color-input-label-text;
+      }
+
+      & ~ .prefix,
+      .suffix {
+        background: $color-input-label-text;
+      }
+    }
+
+    &--prefix--active {
+      margin-left: 12px;
+      & ~ .input__label {
+        left: 48px;
+      }
+    }
+  }
+
+  &__border {
+    position: absolute;
+
+    width: 268px;
+    height: 56px;
+    top: 0px;
+    left: 0px;
+
+    outline: 1px solid $color-input-gray;
+    outline-offset: -1px;
+    border-radius: 4px;
+  }
+
+  &__label {
+    display: none;
+
+    max-width: 256-12-12px;
+    height: 15px;
+    padding: 0 4px;
+    background-color: #fff;
+
+    position: absolute;
+    top: -6px;
+    left: 12px;
+  }
+
+  &__text {
+    @include font-roboto(12px, $color-input-label-text, 400);
+    line-height: 15px;
+    letter-spacing: 0.4px;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__assistive-text {
+    width: 236px;
+    height: 15px;
+
+    position: absolute;
+    top: 61px;
+    left: 16px;
+    display: none;
+  }
+
+  &__prefix {
+    display: flex;
+    margin: auto 0 auto 16px;
+  }
+
+  &__suffix {
+    display: flex;
+    margin: auto 12px auto 0;
+  }
+}
+
+.input__field--error {
+  & ~ .input__border {
+    outline: solid 2px $color-input-red;
+    outline-offset: -2px;
+  }
+
+  & ~ .input__text {
+    color: $color-input-red;
+    display: block;
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+}
