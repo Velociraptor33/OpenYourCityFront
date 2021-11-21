@@ -5,170 +5,22 @@ input {
   all: unset;
 }
 
-// .input {
-//   position: relative;
-//   display: flex;
-//   align-items: center;
-//   width: 256px;
-//   height: 56px;
-//   margin-top: 3px;
-
-//   & .input__border {
-//     width: 100%;
-//     height: 56px;
-//     outline: 1px solid $color-input-gray;
-//     border-radius: 4px;
-//     outline-offset: -1px;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//   }
-
-//   & .input__field:focus {
-//     & ~ .input__border {
-//       outline: solid 2px $color-input-blue;
-//       outline-offset: -2px;
-//     }
-
-//     color: $color-input-text;
-
-//     &::placeholder {
-//       color: transparent;
-//     }
-
-//     & ~ .input__label {
-//       display: block;
-//       color: $color-input-blue;
-//     }
-
-//     & ~ .input__assistive-text {
-//       display: none;
-//       // color: $color-input-blue;
-//     }
-//   }
-
-//   & .input__field {
-//     min-height: 24px;
-//     min-width: 240px;
-//     position: relative;
-
-//     // outline: 1px solid $color-input-gray;
-//     // outline-offset: -1px;
-//     // border-radius: 4px;
-
-//     // margin: 16px 12px 16px 16px;
-
-//     @include font-roboto(16px, $color-input-text, 400);
-//     line-height: 24px;
-//     letter-spacing: 0.15px;
-
-//     &::placeholder {
-//       color: $color-input-gray;
-//     }
-
-// &:focus {
-//   outline: solid 2px $color-input-blue;
-//   outline-offset: -2px;
-//   color: $color-input-text;
-
-//   &::placeholder {
-//     color: transparent;
-//   }
-
-//   & + .input__label {
-//     display: block;
-//     color: $color-input-blue;
-//   }
-
-//   & ~ .input__assistive-text {
-//     display: none;
-//     // color: $color-input-blue;
-//   }
-// }
-
-//     &--disabled {
-//       &::placeholder {
-//         color: $color-input-text-disabled;
-//       }
-//       color: $color-input-text-disabled;
-//       outline-color: $color-input-disabled;
-
-//       & + .input__label {
-//         color: $color-input-gray;
-//       }
-//     }
-
-//     &--filled + .input__label {
-//       display: block;
-//     }
-//   }
-
-//   &__label {
-//     max-width: 256-12-12px;
-//     height: 15px;
-//     padding: 0 4px;
-//     background-color: #fff;
-
-//     position: absolute;
-//     top: -6px;
-//     left: 12px;
-
-//     display: none;
-//   }
-
-//   &__text {
-//     @include font-roboto(12px, $color-input-label-text, 400);
-//     line-height: 15px;
-//     letter-spacing: 0.4px;
-
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//     overflow: hidden;
-//     white-space: nowrap;
-//   }
-
-//   &__assistive-text {
-//     width: 236px;
-//     height: 15px;
-//     margin: 5px auto 0 auto;
-//     color: $color-input-red;
-
-//     vertical-align: middle;
-//     display: none;
-//   }
-
-//   & .input__field--error {
-//     outline: 2px solid $color-input-red;
-//     outline-offset: -2px;
-
-//     & ~ .input__text {
-//       color: $color-input-red;
-//       display: block;
-//     }
-
-//     &::placeholder {
-//       color: transparent;
-//     }
-//   }
-// }
 .input {
-  padding: 0;
-  margin: 6px 0 0 0;
+  display: flex;
+  align-items: center;
   position: relative;
   width: max-content;
-  height: 6 + 56 + 5 + 15px;
+  width: 268px;
+  margin-top: 4px;
 
-  & .input__field {
-    min-height: 24px;
-    min-width: 240px;
+  .input__field {
+    position: relative;
+    height: auto;
+    width: 100%;
 
-    outline: 1px solid $color-input-gray;
-    outline-offset: -1px;
-    border-radius: 4px;
+    margin: 16px 12px 16px 16px;
 
-    padding: 16px 12px 16px 16px;
-
-    @include font-roboto(16px, $color-input-text, 400);
+    @include font-roboto(16px, $color-input-gray, 400);
     line-height: 24px;
     letter-spacing: 0.15px;
 
@@ -177,43 +29,65 @@ input {
     }
 
     &:focus {
-      outline: solid 2px $color-input-blue;
-      outline-offset: -2px;
       color: $color-input-text;
+
+      & ~ .input__border {
+        outline: solid 2px $color-input-blue;
+        outline-offset: -2px;
+      }
+
+      & ~ .input__label {
+        display: block;
+        color: $color-input-blue;
+      }
 
       &::placeholder {
         color: transparent;
       }
 
-      & + .input__label {
-        display: block;
-        color: $color-input-blue;
-      }
-
       & ~ .input__assistive-text {
         display: none;
-        // color: $color-input-blue;
       }
     }
 
-    &--disabled {
-      &::placeholder {
-        color: $color-input-text-disabled;
-      }
-      color: $color-input-text-disabled;
-      outline-color: $color-input-disabled;
+    &--filled {
+      color: $color-input-text;
 
-      & + .input__label {
-        color: $color-input-gray;
+      & ~ .input__label {
+        display: block;
+        color: $color-input-label-text;
+      }
+
+      & ~ .prefix,
+      .suffix {
+        background: $color-input-label-text;
       }
     }
 
-    &--filled + .input__label {
-      display: block;
+    &--prefix--active {
+      margin-left: 12px;
+      & ~ .input__label {
+        left: 48px;
+      }
     }
   }
 
+  &__border {
+    position: absolute;
+
+    width: 268px;
+    height: 56px;
+    top: 0px;
+    left: 0px;
+
+    outline: 1px solid $color-input-gray;
+    outline-offset: -1px;
+    border-radius: 4px;
+  }
+
   &__label {
+    display: none;
+
     max-width: 256-12-12px;
     height: 15px;
     padding: 0 4px;
@@ -222,8 +96,6 @@ input {
     position: absolute;
     top: -6px;
     left: 12px;
-
-    display: none;
   }
 
   &__text {
@@ -231,7 +103,6 @@ input {
     line-height: 15px;
     letter-spacing: 0.4px;
 
-    overflow: hidden;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -240,24 +111,36 @@ input {
   &__assistive-text {
     width: 236px;
     height: 15px;
-    margin: 5px auto 0 auto;
-    color: $color-input-red;
 
-    vertical-align: middle;
+    position: absolute;
+    top: 61px;
+    left: 16px;
     display: none;
   }
 
-  & .input__field--error {
-    outline: 2px solid $color-input-red;
+  &__prefix {
+    display: flex;
+    margin: auto 0 auto 16px;
+  }
+
+  &__suffix {
+    display: flex;
+    margin: auto 12px auto 0;
+  }
+}
+
+.input__field--error {
+  & ~ .input__border {
+    outline: solid 2px $color-input-red;
     outline-offset: -2px;
+  }
 
-    & ~ .input__text {
-      color: $color-input-red;
-      display: block;
-    }
+  & ~ .input__text {
+    color: $color-input-red;
+    display: block;
+  }
 
-    &::placeholder {
-      color: transparent;
-    }
+  &::placeholder {
+    color: transparent;
   }
 }

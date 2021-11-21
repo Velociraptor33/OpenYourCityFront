@@ -1,19 +1,31 @@
-<div class="input">
+<label class="input" for="input">
+  <div [class.input__prefix]="prefix">
+    <ng-template *ngTemplateOutlet="prefix ? prefix : null"></ng-template>
+  </div>
   <input
     id="input"
     [(ngModel)]="value"
     [class.input__field--filled]="value"
     [class.input__field--error]="error"
-    type="{{inputTypes}}"
+    [class.input__field--disabled]="disabled"
+    [class.input__field--prefix--active]="prefix"
+    [class.input__field--suffix--active]="suffix"
     class="input__field"
+    type="{{ inputTypes }}"
     placeholder="{{ label }}"
     [disabled]="disabled"
-    [class.input__field--disabled]="disabled"
   />
+  <div [class.input__suffix]="suffix">
+    <ng-template
+      *ngTemplateOutlet="suffix ? suffix : null"
+      class="suffix"
+    ></ng-template>
+  </div>
+  <label for="input" class="input__border"></label>
   <label for="input" class="input__label input__text">
     {{ label }}
   </label>
   <label for="input" class="input__assistive-text input__text">
     {{ assistiveText }}
   </label>
-</div>
+</label>

@@ -1,4 +1,9 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  TemplateRef,
+} from '@angular/core';
 
 @Component({
   selector: 'oyc-input',
@@ -22,6 +27,8 @@ export class InputComponent {
   @Input() disabled: boolean = false;
   @Input() value: string = '';
   @Input() error: boolean = false;
+  @Input() prefix: TemplateRef<any>  | undefined;
+  @Input() suffix: TemplateRef<any> | undefined;
 
   constructor() {}
 }

@@ -1,8 +1,14 @@
-<div style="margin: 20px">
-  <oyc-input></oyc-input>
-  <oyc-input [error]="true"></oyc-input>
-  <oyc-input [disabled]="true"></oyc-input>
-  <oyc-input [value]="'Pavel'" [disabled]="true"></oyc-input>
-</div>
+<oyc-input
+  [error]="false"
+  [prefix]="s"
+  [suffix]=""
+></oyc-input>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+<ng-template #h>
+  <i class="material-icons prefix"> favorite </i>
+</ng-template>
+
+<ng-template #s>
+  <i class="material-icons prefix"> visibility </i>
+</ng-template>

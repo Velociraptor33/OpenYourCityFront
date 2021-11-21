@@ -1,6 +1,6 @@
 // TODO: review the default color.
 // It seems having a white color by default is not a good choice as the app tends to have a light background
-@mixin font-roboto($size: 14px, $color: #FFFFFF, $weight: 500) {
+@mixin font-roboto($size: 14px, $color: #000, $weight: 500) {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
 
